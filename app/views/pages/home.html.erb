@@ -1,2 +1,17 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="container text-center my-5">
+  <h1 class="mb-5">Welcome to BookHost!</h1>
+  <p class="lead">Rent your favorite books and embark on a literary journey!</p>
+
+
+  <div class="search-bar my-4">
+    <%= form_tag books_path, method: :get, class: "form-inline d-flex justify-content-center" do %>
+      <%= text_field_tag :query, params[:query], placeholder: "Search for books, authors...", class: "form-control mr-2" %>
+      <%= submit_tag "Search", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+
+  <div class="cta-section my-5">
+    <h3 class="mb-4">Join our community!</h3>
+    <%= link_to "Sign up now", new_user_registration_path, class: "btn btn-success btn-lg" %>
+  </div>
+</div>
