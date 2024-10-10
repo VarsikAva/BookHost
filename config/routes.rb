@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+  get 'books/index'
+  get 'books/show'
+  get 'books/new'
+  get 'books/edit'
+  get 'users/index'
+  get 'users/show'
+  get 'users/new'
+  get 'users/edit'
+  get 'orders/index'
+  get 'orders/show'
+  get 'orders/new'
+  get 'orders/edit'
   devise_for :users
   root to: "pages#home"
   get "about", to: "pages#about"
@@ -10,4 +22,5 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+  resources :orders, :books, :users
 end

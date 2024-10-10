@@ -4,5 +4,5 @@
   "main": "index.js",
   "repository": "git@github.com:VarsikAva/BookHost.git",
   "author": "Varsik Orchanian <varsenik.ava@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
 }
