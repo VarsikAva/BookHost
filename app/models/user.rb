@@ -1,7 +1,7 @@
 class User < ApplicationRecord
-  has_many :books, foreign_key: 'seller_id'
-  has_many :orders, foreign_key: 'user_id'
-  has_many :reviews, foreign_key: 'user_id'
+  has_many :books
+  #has_many :orders
+  #has_many :reviews
 
   validates :username, presence: true, uniqueness: true, length: { maximum: 60 }
   validates :email, presence: true, uniqueness: true, length: { maximum: 60 }

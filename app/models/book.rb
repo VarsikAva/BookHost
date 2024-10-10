@@ -1,7 +1,6 @@
 class Book < ApplicationRecord
-  belongs_to :users,foreign_key: 'seller_id'
-  has_many :orders, foreign_key: 'book_id'
-
+  belongs_to :seller, class_name: 'user'
+  has_many :orders
   validates :title, presence: true, length: { maximum: 60 }
   validates :author, presence: true, length: { maximum: 60 }
   validates :price, presence: true
