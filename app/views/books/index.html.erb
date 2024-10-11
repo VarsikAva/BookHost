@@ -1,2 +1,19 @@
-<h1>Books#index</h1>
-<p>Find me in app/views/books/index.html.erb</p>
+<h1>Our Books</h1>
+
+<ul>
+  <% if @books %>
+    <% @books.each do |book| %>
+      <li>
+        <strong><%= book['title'] %></strong> par <%= book['author'] %><br>
+        <em>Genre:</em> <%= book['genre'] %><br>
+        <em>Publisher:</em> <%= book['publisher'] %><br>
+        <em>ISBN:</em> <%= book['isbn'] %><br>
+        <em>Published Date:</em> <%= book['published'] %><br>
+        <em>Description:</em> <%= book['description'] %><br>
+        <img src="<%= book['image'] %>" alt="Book Cover">
+      </li>
+    <% end %>
+  <% else %>
+    <p><%= @error %></p>
+  <% end %>
+</ul>

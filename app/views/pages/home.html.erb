@@ -2,7 +2,6 @@
   <h1 class="mb-5">Welcome to BookHost!</h1>
   <p class="lead">Rent your favorite books and embark on a literary journey!</p>
 
-
   <div class="search-bar my-4">
     <%= form_tag books_path, method: :get, class: "form-inline d-flex justify-content-center" do %>
       <%= text_field_tag :query, params[:query], placeholder: "Search for books, authors...", class: "form-control mr-2" %>
@@ -14,4 +13,24 @@
     <h3 class="mb-4">Join our community!</h3>
     <%= link_to "Sign up now", new_user_registration_path, class: "btn btn-success btn-lg" %>
   </div>
+
+  <h1>Selection of Books</h1>
+
+  <ul>
+    <% if @books %>
+      <% @books.each do |book| %>
+        <li>
+          <strong><%= book['title'] %></strong> par <%= book['author'] %><br>
+          <em>Genre:</em> <%= book['genre'] %><br>
+          <em>Publisher:</em> <%= book['publisher'] %><br>
+          <em>ISBN:</em> <%= book['isbn'] %><br>
+          <em>Published Date:</em> <%= book['published'] %><br>
+          <em>Description:</em> <%= book['description'] %><br>
+          <img src="<%= book['image'] %>" alt="Book Cover">
+        </li>
+      <% end %>
+    <% else %>
+      <p><%= @error %></p>
+    <% end %>
+  </ul>
 </div>
