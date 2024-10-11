@@ -3,7 +3,6 @@ class User < ApplicationRecord
   #has_many :orders
   #has_many :reviews
 
-  validates :username, presence: true, uniqueness: true, length: { maximum: 60 }
   validates :email, presence: true, uniqueness: true, length: { maximum: 60 }
   validates :password, presence: true, length: { maximum: 20 }
   validates :address, presence: true, length: { maximum: 255 }

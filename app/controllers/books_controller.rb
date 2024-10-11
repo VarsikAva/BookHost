@@ -1,6 +1,19 @@
+require 'httparty'
+
+
+
 class BooksController < ApplicationController
   def index
-    @books = Book.all
+    response = HTTParty.get('https://fakerapi.it/api/v1/books', query: {
+      _locale: 'fr_FR',
+      _quantity: 10
+    })
+
+    if response.success?
+      @books = response.parsed_response['data']
+    else
+      @error = "Impossible de récupérer les livres."
+    end
   end
 
   def show
