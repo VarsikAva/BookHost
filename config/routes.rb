@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
 
   devise_for :users
+  authenticated :user do
+    root to: 'books#index', as: :authenticated_root
+  end
   root to: "pages#home"
-  # root to: "books#index"
   get "about", to: "pages#about"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
