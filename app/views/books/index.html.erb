@@ -1,7 +1,14 @@
-<h1>Our Books</h1>
+<div class="container text-center my-5">
+  <h1 class="mb-5">Our Books</h1>
 
-<ul>
+  <div class="search-bar my-4">
+    <%= form_tag books_path, method: :get, class: "form-inline d-flex justify-content-center" do %>
+      <%= text_field_tag :query, params[:query], placeholder: "Search for books, authors...", class: "form-control mr-2" %>
+      <%= submit_tag "Search", class: "btn btn-primary" %>
+    <% end %>
+  </div>
 
+  <ul>
     <% @books.each do |book| %>
       <li>
         <strong><%= book.title %></strong> par <%= book.author %><br>
@@ -13,4 +20,5 @@
         <img src="<%= book.image_url %>" alt="Book Cover">
       </li>
     <% end %>
-    </ul>
+  </ul>
+</div>
