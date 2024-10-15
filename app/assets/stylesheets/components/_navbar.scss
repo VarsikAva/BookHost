@@ -1,6 +1,8 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background-color: #99582a;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -9,4 +11,38 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+  align-items: center;
+}
+
+.nav-link {
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 5px;
+  background-color: #bb9457;
+  color: #6f1d1b;
+  border-radius: 5px;
+  text-decoration: none;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+
+  // Hover effect
+  &:hover {
+    background-color: #ffe6a7;
+    color: #bb9457;
+  }
+
+  // Active state
+  &.active {
+    background-color: #ffe6a7;
+    color: #bb9457;
+  }
+}
+
+h3 {
+  color: #ffe6a7;
+}
+
+
+.avatar {
+  display: flex;
+  align-items: center;
 }
