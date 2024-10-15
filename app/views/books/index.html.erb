@@ -10,12 +10,13 @@
 
   <div class="row gap-3">
     <% @books.each do |book| %>
-        <div class="card">
-          <%= cl_image_tag book.cover.key, class: "card-image" %>
-          <div class="card-content">
-            <h2 class="card-title"><%= book.title %></h2>
-            <p class="card-author"><%= book.author %></p>
-          </div>
+      <div class="card">
+        <%= cl_image_tag book.cover.key, class: "card-image" %>
+        <div class="card-content">
+          <h2 class="card-title"><%= book.title %></h2>
+          <p class="card-author"><%= book.author %></p>
+          <%= link_to "View book", book_path(book.id), class: "btn btn-success btn-lg view-btn" %>
         </div>
-      <% end %>
+      </div>
+    <% end %>
 </div>
