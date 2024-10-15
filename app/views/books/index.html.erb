@@ -8,15 +8,11 @@
     <% end %>
   </div>
 
-  <ul>
+  <ul class="row p-0 g-3">
     <% @books.each do |book| %>
-      <li>
+      <li class="col-12 col-md-6 col-lg-6 card p-3 rounded">
         <strong><%= book.title %></strong> par <%= book.author %><br>
-        <em>Genre:</em> <%#= book.genre %><br>
-        <em>Publisher:</em> <%#= book['publisher'] %><br>
-        <em>ISBN:</em> <%= book.isbn %><br>
-        <em>Published Date:</em> <%#= book['published'] %><br>
-        <em>Description:</em> <%#= book['description'] %><br>
+        <%= link_to "View book", book_path(book.id), class: "btn btn-success btn-lg view-btn" %>
         <img src="<%= book.image_url %>" alt="Book Cover">
       </li>
     <% end %>
