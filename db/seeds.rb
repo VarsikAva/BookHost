@@ -42,6 +42,7 @@ users << User.create(
 )
 puts "Creation of book..."
 
+
 20.times do
   book = Book.create(
     title: Faker::Book.title,
