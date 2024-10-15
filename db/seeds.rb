@@ -40,6 +40,7 @@ Book.create(
   seller: emylianne,
   # seller_id: emylianne.id
   title: "Ce que veulent les gentlemen",
+  description: "'Ce que veulent les gentlemen' is a captivating historical romance novel by Caroline Linden. Set in the Regency era, the story follows the lives of aristocratic gentlemen and the women who capture their hearts. With intricate plot twists and compelling characters, this book is a delightful escape into a world of elegance and passion.",
   author: "Caroline Linden",
   price: 7,
   isbn: "978-2-8112-1274-2",
@@ -49,6 +50,7 @@ Book.create(
 Book.create(
   seller: lise,
   title: "Pride and Prejudice",
+  description: "'Pride and Prejudice' is a timeless classic by Jane Austen that explores themes of love, reputation, class, and family. The story revolves around Elizabeth Bennet and Mr. Darcy, whose initial dislike for each other evolves into a deep and enduring love. Austen's wit and social commentary make this novel a beloved masterpiece.",
   author: "Jane Austen",
   price: 10,
   isbn: "978-0-19-953556-9",
@@ -58,6 +60,7 @@ Book.create(
 Book.create(
   seller: varsik,
   title: "To Kill a Mockingbird",
+  description: "'To Kill a Mockingbird' is a Pulitzer Prize-winning novel by Harper Lee that addresses themes of racial injustice and moral growth. Set in the American South during the 1930s, the story is narrated by young Scout Finch, whose father, attorney Atticus Finch, defends a Black man falsely accused of a crime. This powerful novel is a poignant exploration of compassion and courage.",
   author: "Harper Lee",
   price: 8,
   isbn: "978-0-06-112008-4",
@@ -67,6 +70,7 @@ Book.create(
 Book.create(
   seller: emylianne,
   title: "1984",
+  description: "'1984' is a dystopian novel by George Orwell that presents a chilling vision of a totalitarian society. The story follows Winston Smith, a low-ranking member of 'the Party,' who rebels against the oppressive regime. Orwell's exploration of surveillance, propaganda, and the loss of individual freedom remains hauntingly relevant today.",
   author: "George Orwell",
   price: 9,
   isbn: "978-0-452-28423-4",
@@ -76,6 +80,7 @@ Book.create(
 Book.create(
   seller: lise,
   title: "The Great Gatsby",
+  description: "'The Great Gatsby' is a quintessential American novel by F. Scott Fitzgerald that captures the spirit of the Jazz Age. The story revolves around the mysterious millionaire Jay Gatsby and his obsessive love for Daisy Buchanan. Through its exploration of wealth, love, and the American Dream, the novel offers a poignant critique of the era.",
   author: "F. Scott Fitzgerald",
   price: 12,
   isbn: "978-0-7432-7356-5",
@@ -85,6 +90,7 @@ Book.create(
 Book.create(
   seller: lise,
   title: "The Catcher in the Rye",
+  description: "'The Catcher in the Rye' is a coming-of-age novel by J.D. Salinger that follows the life of Holden Caulfield, a teenager grappling with the complexities of adolescence. Through Holden's eyes, the novel explores themes of identity, alienation, and the loss of innocence, making it a timeless classic for generations of readers.",
   author: "J.D. Salinger",
   price: 7,
   isbn: "978-0-316-76948-0",
@@ -94,6 +100,7 @@ Book.create(
 Book.create(
   seller: varsik,
   title: "The Hobbit",
+  description: "'The Hobbit' is a fantasy novel by J.R.R. Tolkien that introduces readers to the world of Middle-earth. The story follows Bilbo Baggins, a hobbit who embarks on an epic adventure with a company of dwarves to reclaim their treasure from the dragon Smaug. Filled with magic, danger, and unexpected friendships, this novel is a beloved prelude to 'The Lord of the Rings.'",
   author: "J.R.R. Tolkien",
   price: 15,
   isbn: "978-0-618-00221-4",
@@ -103,6 +110,7 @@ Book.create(
 Book.create(
   seller: emylianne,
   title: "Harry Potter and the Philosopher's Stone",
+  description: "'Harry Potter and the Philosopher's Stone' is the first book in J.K. Rowling's enchanting series about a young boy who discovers he is a wizard. The story follows Harry Potter as he enters Hogwarts School of Witchcraft and Wizardry, where he makes lifelong friends, faces dark forces, and begins his journey to becoming a legendary hero.",
   author: "J.K. Rowling",
   price: 20,
   isbn: "978-0-7475-3269-9",
@@ -112,6 +120,7 @@ Book.create(
 Book.create(
   seller: emylianne,
   title: "The Alchemist",
+  description: "'The Alchemist' is an inspirational novel by Paulo Coelho that tells the story of Santiago, a young Andalusian shepherd who embarks on a journey to Egypt in search of a treasure. Along the way, he learns about the importance of following his dreams and the power of the universe to guide him. This philosophical tale is a celebration of self-discovery and personal growth.",
   author: "Paulo Coelho",
   price: 11,
   isbn: "978-0-06-231500-7",
@@ -121,6 +130,7 @@ Book.create(
 Book.create(
   seller: varsik,
   title: "The Hunger Games",
+  description: "'The Hunger Games' is a dystopian novel by Suzanne Collins that takes place in a post-apocalyptic world where children are forced to compete in a deadly televised event. The story follows Katniss Everdeen, a brave and resourceful teenager who volunteers to take her sister's place in the games. This gripping novel explores themes of survival, rebellion, and the power of hope in the face of oppression.",
   author: "Suzanne Collins",
   price: 14,
   isbn: "978-0-439-02348-1",
