@@ -1,7 +1,7 @@
 <h1>Create New Book</h1>
 <p>Fill in the form to create a new book.</p>
 
-<%= simple_form_for @book, html: { multipart: true } do |f| %>
+<%= simple_form_for (@book), html: { multipart: true } do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
@@ -21,11 +21,11 @@
     <%= f.input :stock_quantity,
                 required: true,
                 input_html: { autocomplete: "stock_quantity" } %>
-    <%= f.input :image, as: :file,
+    <%= f.input :cover, as: :file,
                 required: true %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit, "Create Book" %>
+    <%= f.submit "Create Book", class: "btn btn-primary" %>
   </div>
 <% end %>
