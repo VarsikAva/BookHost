@@ -1,0 +1,10 @@
+
+<div class="card-product">
+  <%= link_to book_path(book) do %>
+  <img src="<%= book.image_url %>" alt="Book Cover" class="h-80 w-72 object-cover rounded-t-xl" />
+  <div class="card-product-infos">
+    <strong><%= book.title %></strong> par <%= book.author %><br>
+    <p><%= book.description %></p>
+    <% end %>
+  </div>
+</div>

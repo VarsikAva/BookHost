@@ -44,5 +44,6 @@ Book.create(
   price: 7,
   isbn: "978-2-8112-1274-2",
   stock_quantity: 1,
-  image_url: "https://imgs.search.brave.com/VUq5I6hZ9lu753xetpFCCIgJQbr4_YuWmn0bMrFY9pM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9wcm9k/dWN0cy1pbWFnZXMu/ZGktc3RhdGljLmNv/bS9pbWFnZS9jYXJv/bGluZS1saW5kZW4t/Y2UtcXVlLXZldWxl/bnQtbGVzLWdlbnRs/ZW1lbi85NzgyODEx/MjEyNzQyLTQ3NXg1/MDAtMS5qcGc"
+  image_url: "https://imgs.search.brave.com/VUq5I6hZ9lu753xetpFCCIgJQbr4_YuWmn0bMrFY9pM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9wcm9k/dWN0cy1pbWFnZXMu/ZGktc3RhdGljLmNv/bS9pbWFnZS9jYXJv/bGluZS1saW5kZW4t/Y2UtcXVlLXZldWxl/bnQtbGVzLWdlbnRs/ZW1lbi85NzgyODEx/MjEyNzQyLTQ3NXg1/MDAtMS5qcGc",
+  description: "Marcus, duc d'Essex, a passé la majeure partie de sa vie à tirer son jumeau du pétrin. "
 )

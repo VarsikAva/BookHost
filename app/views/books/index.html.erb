@@ -1,7 +1,9 @@
-<h1>Our Books</h1>
+<div class="text-center p-10 m-3">
+  <h1>Our Books</h1>
+</div>
+
 
 <ul>
-
     <% @books.each do |book| %>
       <li>
         <strong><%= book.title %></strong> par <%= book.author %><br>
@@ -13,4 +15,25 @@
         <img src="<%= book.image_url %>" alt="Book Cover">
       </li>
     <% end %>
-    </ul>
+</ul>
+
+<h2>Random books selection</h2>
+<div class="container mt-5">
+  <div class="row gap-3">
+    <% @books.each do |book| %>
+      <div class="card" style="width: 18rem;">
+        <%= link_to book_path(book) do %>
+          <!-- <img src="..." class="card-img-top" alt="...">-->
+          <%#= cl_image_tag pokemon.photo.key, class: 'card-img-top' %>
+          <img src="<%= book.image_url %>" alt="Book Cover" class="h-80 w-72 object-cover rounded-t-xl" %>
+          <div class="card-body">
+            <h5 class="card-title"><%= book.title %></h5>
+            <p class="card-text"><%= book.description %></p>
+        <!--    <a href="pokemon/" class="btn btn-primary">Go somewhere</a>-->
+
+          </div>
+        <% end %>
+      </div>
+    <% end  %>
+  </div>
+</div>
