@@ -8,13 +8,15 @@
     <% end %>
   </div>
 
-  <ul class="row p-0 g-3">
+  <div class="row gap-3">
     <% @books.each do |book| %>
-      <li class="col-12 col-md-6 col-lg-6 card p-3 rounded">
-        <strong><%= book.title %></strong> par <%= book.author %><br>
-        <%= link_to "View book", book_path(book.id), class: "btn btn-success btn-lg view-btn" %>
-        <img src="<%= book.image_url %>" alt="Book Cover">
-      </li>
+      <div class="card">
+        <%= cl_image_tag book.cover.key, class: "card-image" %>
+        <div class="card-content">
+          <h2 class="card-title"><%= book.title %></h2>
+          <p class="card-author"><%= book.author %></p>
+          <%= link_to "View book", book_path(book.id), class: "btn btn-success btn-lg view-btn" %>
+        </div>
+      </div>
     <% end %>
-  </ul>
 </div>
