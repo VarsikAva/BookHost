@@ -18,6 +18,7 @@
         <em>Published Date:</em> <%#= book['published'] %><br>
         <em>Description:</em> <%#= book['description'] %><br>
         <img src="<%= book.image_url %>" alt="Book Cover">
+        <%= link_to 'Réserver ce livre', new_book_booking_path(book), class: 'btn btn-primary' %>
       </li>
     <% end %>
   </ul>

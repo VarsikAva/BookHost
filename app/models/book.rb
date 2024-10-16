@@ -1,6 +1,6 @@
 class Book < ApplicationRecord
   belongs_to :seller, class_name: :User
-  has_many :orders
+  has_many :bookings
   validates :title, presence: true, length: { maximum: 60 }
   validates :author, presence: true, length: { maximum: 60 }
   validates :price, presence: true

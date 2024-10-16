@@ -1,0 +1,12 @@
+<h1>Your Bookings</h1>
+
+<% @bookings.each do |booking| %>
+  <div>
+    <h2><%= link_to booking.book.title, booking_path(booking) %></h2>
+    <p>Start Date: <%= booking.start_date %></p>
+    <p>End Date: <%= booking.end_date %></p>
+    <p>Status: <%= booking.status %></p>
+  </div>
+<% end %>
+
+<%= link_to 'Back to Bookings', book_bookings_path(@booking.book) %>

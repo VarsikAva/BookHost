@@ -1,0 +1,9 @@
+<h1>Booking Details</h1>
+
+<p><strong>Book:</strong> <%= @booking.book.title %></p>
+<p><strong>User:</strong> <%= @booking.user.email %></p>
+<p><strong>Start Date:</strong> <%= @booking.start_date %></p>
+<p><strong>End Date:</strong> <%= @booking.end_date %></p>
+<p><strong>Status:</strong> <%= @booking.status %></p>
+
+<%= link_to 'Back to Bookings', book_bookings_path(@booking.book) %>
