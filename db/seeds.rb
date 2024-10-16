@@ -42,7 +42,6 @@ users << User.create(
 )
 puts "Creation of book..."
 
-
 20.times do
   book = Book.create(
     title: Faker::Book.title,
@@ -53,7 +52,6 @@ puts "Creation of book..."
     seller: users.sample,
     description: Faker::Lorem.paragraph(sentence_count: 2)
   )
-  p book.errors.messages
   file = URI.parse(Faker::LoremFlickr.image(size: "300x400")).open
   book.cover.attach(io: file, filename: "cover_#{book.id}.jpg", content_type: "image/jpg")
   book.save
