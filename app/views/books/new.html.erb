@@ -2,7 +2,7 @@
   <h1>Create New Book</h1>
   <p>Fill in the form to create a new book.</p>
 
-  <%= simple_form_for (@book), html: { multipart: true } do |f| %>
+  <%= simple_form_for (@book) do |f| %>
     <%= f.error_notification %>
 
     <div class="form-inputs">
