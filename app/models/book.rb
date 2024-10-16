@@ -4,7 +4,6 @@ class Book < ApplicationRecord
   has_many :bookings
   has_one_attached :cover
   validates :title, presence: true, length: { maximum: 60 }
-  validates :description, presence: true
   validates :author, presence: true, length: { maximum: 60 }
   validates :price, presence: true
   validates :isbn, presence: true, length: { maximum: 20 }
