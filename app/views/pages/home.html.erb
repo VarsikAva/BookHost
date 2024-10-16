@@ -9,17 +9,16 @@
     <%= link_to "Sign up now", new_user_registration_path, class: "btn btn-success btn-lg" %>
   </div>
 
-  <ul>
+  <div class="row gap-3">
     <% @books.each do |book| %>
-      <li>
-        <strong><%= book.title %></strong> par <%= book.author %><br>
-        <em>Genre:</em> <%#= book.genre %><br>
-        <em>Publisher:</em> <%#= book['publisher'] %><br>
-        <em>ISBN:</em> <%= book.isbn %><br>
-        <em>Published Date:</em> <%#= book['published'] %><br>
-        <em>Description:</em> <%#= book['description'] %><br>
-        <img src="<%= book.image_url %>" alt="Book Cover">
-      </li>
+      <div class="card">
+        <%= cl_image_tag book.cover.key, class: "card-image" %>
+        <div class="card-content">
+          <h2 class="card-title"><%= book.title %></h2>
+          <p class="card-author"><%= book.author %></p>
+          <%= link_to "View book", book_path(book.id), class: "btn btn-success btn-lg view-btn" %>
+        </div>
+      </div>
     <% end %>
-  </ul>
+  </div>
 </div>
