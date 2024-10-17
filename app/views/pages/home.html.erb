@@ -2,23 +2,28 @@
   <h1 class="mb-5">Welcome to BookHost!</h1>
   <p class="lead">Rent your favorite books and embark on a literary journey!</p>
 
-  <%= link_to "Book a book", books_path, class: "btn btn-success btn-lg" %>
+  <%= link_to "Book a book", books_path, class: "btn btn-book btn-lg" %>
 
   <div class="cta-section my-5">
-    <h3 class="mb-4">Join our community!</h3>
-    <%= link_to "Sign up now", new_user_registration_path, class: "btn btn-success btn-lg" %>
+    <h2 class="mb-4">Join our community!</h2>
+    <%= link_to "Sign up now", new_user_registration_path, class: "btn btn-book btn-lg" %>
   </div>
 
-  <div class="row gap-3">
+  <ul class="container">
     <% @books.each do |book| %>
-      <div class="card">
-        <%= cl_image_tag book.cover.key, class: "card-image" %>
-        <div class="card-content">
-          <h2 class="card-title"><%= book.title %></h2>
-          <p class="card-author"><%= book.author %></p>
-          <%= link_to "View book", book_path(book.id), class: "btn btn-success btn-lg view-btn" %>
+    <li>
+      <div class="card-book">
+        <%= cl_image_tag book.cover.key, class: "card-img-top" %>
+        <div class="card-body">
+          <h5 class="card-title"><%= book.author %> - <%= book.title %></h5>
+          <p class="card-text"><%= book.description %></p>
+          <div class="card-button">
+            <%= link_to "View book", book_path(book.id), class: "btn btn-book" %>
+          </div>
+
         </div>
       </div>
+    </li>
     <% end %>
   </div>
 </div>
