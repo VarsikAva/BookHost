@@ -7,20 +7,21 @@
   <div class="row mt-5">
     <div class="product-desc">
       <%= cl_image_tag @book.cover.key, class: 'product-image', alt: 'Book Cover' %>
-      <p class="book-desc"> <%= @book.description %></p>
-    </div>
       <ul class="product-detail">
+        <li><%= @book.description %></li>
+        <div>
         <li><em>ISBN:</em> <%= @book.isbn %></li>
         <li><em>Owner:</em> <%= @book.seller.first_name %> <%= @book.seller.last_name %></li>
         <li><em>Added:</em> <%= @book.created_at.strftime("%B %d, %Y at %I:%M %p") %></li>
         <li><em>Stock:</em> <%= @book.stock_quantity %></li>
-      </ul>
+        </div>
       <div class="product-button">
-        <%= link_to "Rent this Book #{@book.price}€/month", new_book_booking_path(@book), class: 'btn btn-book' %>
+        <%= link_to "Rent this Book #{@book.price}€/month", new_book_booking_path(@book), class: 'btn btn-book btn-product-r' %>
         <% if @book.seller != current_user %>
-          <%= link_to "Contact seller", new_message_path(receiver_id: @book.seller.id), class: 'btn btn-primary' %>
+          <%= link_to "Contact seller", new_message_path(receiver_id: @book.seller.id), class: 'btn btn-book btn-product-l' %>
         <% end %>
-      </div>
+    </div>
+      </ul>
     </div>
   </div>
 </div>
