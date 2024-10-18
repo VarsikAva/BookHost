@@ -5,17 +5,21 @@
   <div class="row mt-5">
     <%= cl_image_tag @book.cover.key, class: 'col-12 col-md-6', alt: 'Book Cover' %>
     <div class="col-12 col-md-6">
-    <strong>Details</strong>
-    <ul class="my-2">
-      <li><em>ISBN:</em> <%= @book.isbn %></li>
-      <li><em>Owner:</em> <%= @book.seller.full_name %></li>
-      <li><em>Added:</em> <%= @book.created_at %></li>
-      <li><em>Stock:</em> <%= @book.stock_quantity %></li>
-    </ul>
-    <p class="mt-4"><em><%= @book['description'] %></em></p>
+      <strong>Details</strong>
+      <ul class="my-2">
+        <li><em>ISBN:</em> <%= @book.isbn %></li>
+        <li><em>Owner:</em> <%= @book.seller.full_name %></li>
+        <li><em>Added:</em> <%= @book.created_at %></li>
+        <li><em>Stock:</em> <%= @book.stock_quantity %></li>
+      </ul>
+
+      <p class="mt-4"><em><%= @book['description'] %></em></p>
+
       <%= link_to "Rent this Book #{@book.price} €/month", new_book_booking_path(@book), class: 'btn btn-success' %>
-      <%= link_to "Contact seller", new_message_path(receiver_id: @book.seller.id), class: 'btn btn-primary' %>
-       </div>
+      <% if @book.seller != current_user %>
+        <%= link_to "Contact seller", new_message_path(receiver_id: @book.seller.id), class: 'btn btn-primary' %>
+      <% end %>
+    </div>
   </div>
 
 </div>

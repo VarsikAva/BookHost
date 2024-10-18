@@ -1,18 +1,24 @@
 <div class="container my-5">
   <h1><%= @other_user.full_name %></h1>
-    <ul>
+    <div>
       <% @messages.each do |message| %>
-        <li>
-          <% if message.sender_id == @other_user.id %>
-            <%= @other_user.full_name %>
-          <% else %>
-            You
-          <% end %>
-          <br>
-          <p><%= message.content %></p>
-        </li>
+        <div style="
+          margin: <%= message.sender_id == @other_user.id ? '0 auto 0 0' : '0 0 0 auto' %>;
+          width: fit-content;
+        ">
+          <span class="h6">
+            <% if message.sender_id == @other_user.id %>
+              <%= @other_user.full_name %>
+            <% else %>
+              <span style="display: block; width: 100%; text-align: right;">You</span>
+            <% end %>
+            </span>
+            <p
+              class="d-flex card py-2 px-3 rounded-5 <%= message.sender_id == @other_user.id ? 'bg-light' : 'bg-info' %>"
+            ><%= message.content %></p>
+          </div>
       <% end %>
-    </ul>
+    </div>
 
 <%= simple_form_for (@new_message), data: { turbo: false } do |f| %>
     <% if @new_message.errors.any? %>
