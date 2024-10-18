@@ -8,12 +8,13 @@
     <strong>Details</strong>
     <ul class="my-2">
       <li><em>ISBN:</em> <%= @book.isbn %></li>
-      <li><em>Owner:</em> <%= @book.seller.first_name %> <%= @book.seller.last_name %></li>
+      <li><em>Owner:</em> <%= @book.seller.full_name %></li>
       <li><em>Added:</em> <%= @book.created_at %></li>
       <li><em>Stock:</em> <%= @book.stock_quantity %></li>
     </ul>
     <p class="mt-4"><em><%= @book['description'] %></em></p>
-      <%= link_to "Rent this Book #{@book.price} €/month", new_book_booking_path(@book), class: 'btn btn-primary' %>
+      <%= link_to "Rent this Book #{@book.price} €/month", new_book_booking_path(@book), class: 'btn btn-success' %>
+      <%= link_to "Contact seller", new_message_path(receiver_id: @book.seller.id), class: 'btn btn-primary' %>
        </div>
   </div>
 
