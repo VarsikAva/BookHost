@@ -18,4 +18,6 @@ Rails.application.routes.draw do
     resources :bookings, only: [:new, :create, :index, :show, :destroy]
   end
   resources :bookings, only: [:show, :edit, :update, :destroy]
+  resources :messages, only: [:index, :new, :create]
+  get 'messages/conversation/:receiver_id', to: 'messages#show_conversation'
 end
