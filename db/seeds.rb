@@ -11,10 +11,17 @@ require 'json'
 require 'open-uri'
 require 'faker'
 
-puts "Cleaning database..."
+
+puts 'Cleaning database...'
+Booking.destroy_all
 Book.destroy_all
 User.destroy_all
-Order.destroy_all
+
+
+# puts "Cleaning database..."
+# Book.destroy_all
+# User.destroy_all
+# Order.destroy_all
 puts "Database destroyed"
 puts "Creation of the new database"
 puts "Creation of users..."
