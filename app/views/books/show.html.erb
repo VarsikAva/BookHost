@@ -17,20 +17,20 @@
       </ul>
     </div>
 
-    <% if @book.stock_quantity == 0 %>
-      <p class="text-danger">This book is currently out of stock.</p>
+    <div class="product-button">
+      <% if @book.stock_quantity == 0 %>
+        <p class="text-danger">This book is currently out of stock.</p>
 
-      <% if @book.out_of_stock_until.present? %>
-        <p>This book will be available again after: <%= @book.out_of_stock_until.strftime('%B %d, %Y') %></p>
-      <% end %>
-    <% else %>
-      <div class="product-button">
-        <%= link_to "Rent this Book #{@book.price}€/month", new_book_booking_path(@book), class: 'btn btn-book btn-product-r' %>
-        <% if @book.seller != current_user %>
-          <%= link_to "Contact seller", new_message_path(receiver_id: @book.seller.id), class: 'btn btn-book btn-product-l' %>
+        <% if @book.out_of_stock_until.present? %>
+          <p>This book will be available again after: <%= @book.out_of_stock_until.strftime('%B %d, %Y') %></p>
         <% end %>
-      </div>
-    <% end %>
+      <% else %>
+          <%= link_to "Rent this Book #{@book.price}€/month", new_book_booking_path(@book), class: 'btn btn-book btn-product-r' %>
+          <% if @book.seller != current_user %>
+            <%= link_to "Contact seller", new_message_path(receiver_id: @book.seller.id), class: 'btn btn-book btn-product-l' %>
+          <% end %>
+        </div>
+      <% end %>
 
   </div>
 </div>

@@ -17,9 +17,6 @@
         <div class="card-body">
           <h5 class="card-title"><%= book.author %> - <%= book.title %></h5>
           <p class="card-text"><%= book.description %></p>
-          <div class="card-button">
-            <%= link_to "View book", book_path(book.id), class: "btn btn-book" %>
-          </div>
 
             <% if book.stock_quantity == 0 %>
               <p class="text-danger">Out of stock</p>
@@ -30,6 +27,9 @@
               <p>Stock: <%= book.stock_quantity %> available</p>
             <% end %>
         </div>
+          <div class="card-button">
+            <%= link_to "View book", book_path(book.id), class: "btn btn-book btn-index" %>
+          </div>
       </div>
     </li>
     <% end %>
