@@ -55,7 +55,7 @@ puts "Creation of book..."
     author: Faker::Book.author,
     isbn: Faker::Number.unique.number(digits: 13).to_s,
     price: Faker::Commerce.price(range: 1..10),
-    stock_quantity: Faker::Number.between(from: 1, to: 15),
+    stock_quantity: Faker::Number.between(from: 0, to: 5),
     seller: users.sample,
     description: Faker::Lorem.paragraph(sentence_count: 2)
   )
