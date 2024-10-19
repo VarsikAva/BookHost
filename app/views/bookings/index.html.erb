@@ -1,13 +1,20 @@
-<h1>Your Bookings</h1>
+<div class="container my-5">
+  <h1 class="text-center mb-4">Your Bookings</h1> <!-- Titre de la page -->
 
-<% @bookings.each do |booking| %>
-  <div>
-    <p><strong>Book:</strong> <%= booking.book.title %></p>
-    <p><strong>User:</strong> <%= booking.user.email %></p>
-    <p><strong>Start Date:</strong> <%= booking.start_date %></p>
-    <p><strong>End Date:</strong> <%= booking.end_date %></p>
-    <p><strong>Status:</strong> <%= booking.status %></p>
-
-    <%= link_to 'Back to Bookings', book_bookings_path(booking.book) %>
-  </div>
-<% end %>
+  <% @bookings.each do |booking| %>
+    <div class="card w-50 mx-auto mb-4 p-3"> <!-- Carte pour chaque réservation -->
+      <div class="card-body d-flex">
+        <div class="me-4">
+          <%= cl_image_tag booking.book.cover.key, class: 'product-image', alt: 'Book Cover', style: 'max-width: 150px; max-height: 200px;' %>
+        </div>
+        <div>
+          <h5 class="card-title mb-4"><%= booking.book.title %></h5>
+          <p class="card-text"><strong>Owner:</strong> <%= booking.user.email %></p>
+          <p class="card-text"><strong>Start Date:</strong> <%= booking.start_date.strftime("%B %d, %Y") %></p>
+          <p class="card-text"><strong>End Date:</strong> <%= booking.end_date.strftime("%B %d, %Y") %></p>
+          <%= link_to 'View Booking', book_booking_path(booking.book, booking), class: 'btn btn-book btn-product-l' %> <!-- Lien pour voir la réservation -->
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

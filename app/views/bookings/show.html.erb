@@ -1,9 +1,20 @@
-<h1>Booking Details</h1>
-
-<p><strong>Book:</strong> <%= @booking.book.title %></p>
-<p><strong>User:</strong> <%= @booking.user.email %></p>
-<p><strong>Start Date:</strong> <%= @booking.start_date %></p>
-<p><strong>End Date:</strong> <%= @booking.end_date %></p>
-<p><strong>Status:</strong> <%= @booking.status %></p>
-
-<%= link_to 'Back to Bookings', book_bookings_path(@booking.book) %>
+<div class="container my-5">
+  <h1 class="text-center mb-4">Details of your book</h1>
+  <div class="card w-50 mx-auto p-3">
+    <div class="card-body d-flex">
+      <div class="me-4">
+        <%= cl_image_tag @booking.book.cover.key, class: 'product-image', alt: 'Book Cover', style: 'max-width: 150px; max-height: 200px;' %>
+      </div>
+      <div>
+        <h5 class="card-title mb-4"><%= @booking.book.title %></h5>
+        <p class="card-text"><strong>Author:</strong> <%= @booking.book.author %></p> <!-- Ajout de l'auteur -->
+        <p class="card-text"><strong>ISBN:</strong> <%= @booking.book.isbn %></p> <!-- Ajout de l'ISBN -->
+        <p class="card-text"><strong>Description:</strong> <%= @booking.book.description %></p> <!-- Ajout de la description -->
+        <p class="card-text"><strong>Owner:</strong> <%= @booking.user.email %></p>
+        <p class="card-text"><strong>Start Date:</strong> <%= @booking.start_date.strftime("%B %d, %Y") %></p>
+        <p class="card-text"><strong>End Date:</strong> <%= @booking.end_date.strftime("%B %d, %Y") %></p>
+        <%= link_to 'Back to Bookings', book_bookings_path(@booking.book), class: 'btn btn-book btn-product-l' %>
+      </div>
+    </div>
+  </div>
+</div>
