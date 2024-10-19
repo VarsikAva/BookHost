@@ -27,9 +27,5 @@ class Booking < ApplicationRecord
 
   def decrement_book_stock
     book.decrement_stock!
-
-    if book.stock_quantity == 0
-      book.update(out_of_stock_until: self.end_date)
-    end
   end
 end
