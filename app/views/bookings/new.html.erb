@@ -1,35 +1,49 @@
-<h1>New Booking</h1>
+<div class="container my-5 d-flex justify-content-center">
+  <div class="w-50">
+    <h1 class="title mb-5 text-center">Create your next booking</h1>
 
-<% if @book.stock_quantity == 0 %>
-  <p>This book is out of stock and cannot be booked at the moment.</p>
-  <% if @book.out_of_stock_until %>
-    <p>It will be available again after: <%= @book.out_of_stock_until.strftime('%B %d, %Y') %></p>
-  <% end %>
-<% else %>
-  <%= form_with model: @booking, url: book_bookings_path(@book), local: true do |form| %>
-    <%= form.label :start_date %>
-    <%= form.date_field :start_date %>
+    <% if @book.stock_quantity == 0 %>
+      <div class="alert alert-warning">
+        <p>This book is out of stock and cannot be booked at the moment.</p>
+      </div>
+    <% else %>
+      <%= form_with model: [@book, @booking], local: true do |form| %>
+        <div class="form-group mb-4">
+          <%= form.label :start_date, class: "form-label" %>
+          <div class="d-flex">
+            <div class="me-2">
+              <%= form.date_select :start_date,
+                { start_year: Date.today.year,
+                  end_year: Date.today.year + 1,
+                  include_blank: false,
+                  prompt: { day: 'Day', month: 'Month', year: 'Year' } },
+                { class: "form-select", prompt: { day: 'Day', month: 'Month', year: 'Year' } } %>
+            </div>
+          </div>
+        </div>
 
-    <%= form.label :end_date %>
-    <%= form.date_field :end_date %>
+        <div class="form-group mb-4">
+          <%= form.label :end_date, class: "form-label" %>
+          <div class="d-flex">
+            <div class="me-2">
+              <%= form.date_select :end_date,
+                { start_year: Date.today.year,
+                  end_year: Date.today.year + 1,
+                  include_blank: false,
+                  prompt: { day: 'Day', month: 'Month', year: 'Year' } },
+                { class: "form-select", prompt: { day: 'Day', month: 'Month', year: 'Year' } } %>
+            </div>
+          </div>
+        </div>
 
-  <% end %>
-<% end %>
+        <div class="form-actions">
+          <%= form.submit "Create booking", class: "btn btn-book btn-product-l" %>
+        </div>
+      <% end %>
+    <% end %>
 
-<%= form_with model: [@book, @booking], local: true do |form| %>
-  <div class="field">
-    <%= form.label :start_date %>
-    <%= form.date_select :start_date %>
+    <div class="text-center my-3">
+      <%= link_to 'Back to book', book_path(@book), class: "btn btn-book btn-product-l" %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :end_date %>
-    <%= form.date_select :end_date %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit "Create Booking" %>
-  </div>
-<% end %>
-
-<%= link_to 'Back to Book', book_path(@book) %>
+</div>
