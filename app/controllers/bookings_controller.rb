@@ -8,10 +8,10 @@ class BookingsController < ApplicationController
     def show
       @booking = Booking.find(params[:id])
     end
+
     def new
       @booking = Booking.new
     end
-
 
     def create
       @booking = current_user.bookings.build(booking_params)

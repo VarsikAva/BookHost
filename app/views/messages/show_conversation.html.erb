@@ -1,0 +1,49 @@
+<div class="container my-5">
+  <h1><%= @other_user.full_name %></h1>
+    <div>
+      <% @messages.each do |message| %>
+        <div style="
+          margin: <%= message.sender_id == @other_user.id ? '0 auto 0 0' : '0 0 0 auto' %>;
+          width: fit-content;
+        ">
+          <span class="h6">
+            <% if message.sender_id == @other_user.id %>
+              <%= @other_user.full_name %>
+            <% else %>
+              <span style="display: block; width: 100%; text-align: right;">You</span>
+            <% end %>
+            </span>
+            <p
+              class="d-flex card py-2 px-3 rounded-5 <%= message.sender_id == @other_user.id ? 'bg-light' : 'bg-info' %>"
+            ><%= message.content %></p>
+          </div>
+      <% end %>
+    </div>
+
+<%= simple_form_for (@new_message), data: { turbo: false } do |f| %>
+    <% if @new_message.errors.any? %>
+      <div id="error_explanation" class="alert alert-danger">
+        <b><%= pluralize(@new_message.errors.count, "error") %>:</b>
+        <ul>
+          <% @new_message.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-inputs">
+      <%= f.input :content,
+                  required: true,
+                  input_html: { rows: 10 },
+                  placeholder: "Type your message here"
+      %>
+      <%= f.hidden_field :receiver_id, value: @other_user.id %>
+      <%= f.hidden_field :sender_id, value: current_user.id %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.submit "Send", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>

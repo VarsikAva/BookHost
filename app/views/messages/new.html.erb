@@ -1,0 +1,30 @@
+<div class="container my-5">
+  <h1>New message</h1>
+
+  <%= simple_form_for (@message), data: { turbo: false } do |f| %>
+    <% if @message.errors.any? %>
+      <div id="error_explanation" class="alert alert-danger">
+        <b><%= pluralize(@message.errors.count, "error") %>:</b>
+        <ul>
+          <% @message.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-inputs">
+      <%= f.input :content,
+                  required: true,
+                  input_html: { rows: 10 },
+                  placeholder: "Type your message here"
+      %>
+      <%= f.hidden_field :receiver_id, value: @receiver_id %>
+      <%= f.hidden_field :sender_id, value: current_user.id %>
+    </div>
+
+    <div class="form-actions">
+      <%= f.submit "Send", class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>

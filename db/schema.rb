@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema[7.1].define(version: 2024_10_18_153633) do
+=======
+ActiveRecord::Schema[7.1].define(version: 2024_10_17_223150) do
+>>>>>>> ec200ca215a8fbae99d88275503a482e0be07c97
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -65,8 +69,19 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_18_153633) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "description"
+<<<<<<< HEAD
     t.date "out_of_stock_until"
+=======
+>>>>>>> ec200ca215a8fbae99d88275503a482e0be07c97
     t.index ["seller_id"], name: "index_books_on_seller_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.bigint "sender_id"
+    t.bigint "receiver_id"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "orders", force: :cascade do |t|
