@@ -1,5 +1,22 @@
 <h1>New Booking</h1>
 
+<% if @book.stock_quantity == 0 %>
+  <p>This book is out of stock and cannot be booked at the moment.</p>
+  <% if @book.out_of_stock_until %>
+    <p>It will be available again after: <%= @book.out_of_stock_until.strftime('%B %d, %Y') %></p>
+  <% end %>
+<% else %>
+  <%= form_with model: @booking, url: book_bookings_path(@book), local: true do |form| %>
+    <%= form.label :start_date %>
+    <%= form.date_field :start_date %>
+
+    <%= form.label :end_date %>
+    <%= form.date_field :end_date %>
+
+    <%= form.submit 'Book this book' %>
+  <% end %>
+<% end %>
+
 <%= form_with model: [@book, @booking], local: true do |form| %>
   <div class="field">
     <%= form.label :start_date %>

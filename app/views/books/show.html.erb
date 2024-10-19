@@ -9,17 +9,24 @@
       <%= cl_image_tag @book.cover.key, class: 'product-image', alt: 'Book Cover' %>
       <p class="book-desc"> <%= @book.description %></p>
     </div>
-      <ul class="product-detail">
-        <li><em>ISBN:</em> <%= @book.isbn %></li>
-        <li><em>Owner:</em> <%= @book.seller.first_name %> <%= @book.seller.last_name %></li>
-        <li><em>Added:</em> <%= @book.created_at.strftime("%B %d, %Y at %I:%M %p") %></li>
-        <li><em>Stock:</em> <%= @book.stock_quantity %></li>
-      </ul>
+    <ul class="product-detail">
+      <li><em>ISBN:</em> <%= @book.isbn %></li>
+      <li><em>Owner:</em> <%= @book.seller.first_name %> <%= @book.seller.last_name %></li>
+      <li><em>Added:</em> <%= @book.created_at.strftime("%B %d, %Y at %I:%M %p") %></li>
+      <li><em>Stock:</em> <%= @book.stock_quantity %></li>
+    </ul>
+
+    <% if @book.stock_quantity == 0 %>
+      <p class="text-danger">This book is currently out of stock.</p>
+
+      <% if @book.out_of_stock_until.present? %>
+        <p>This book will be available again after: <%= @book.out_of_stock_until.strftime('%B %d, %Y') %></p>
+      <% end %>
+    <% else %>
       <div class="product-button">
         <%= link_to "Rent this Book #{@book.price}€/month", new_book_booking_path(@book), class: 'btn btn-book' %>
       </div>
+    <% end %>
 
-    </div>
   </div>
-
 </div>
