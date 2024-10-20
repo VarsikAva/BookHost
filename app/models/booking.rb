@@ -8,8 +8,6 @@ class Booking < ApplicationRecord
 
   before_create :check_availability
 
-  after_create :decrement_book_stock_and_set_out_of_stock_date
-
   private
 
   def end_date_after_start_date
@@ -27,9 +25,5 @@ class Booking < ApplicationRecord
 
   def decrement_book_stock
     book.decrement_stock!
-
-    if book.stock_quantity == 0
-      book.update(out_of_stock_until: self.end_date)
-    end
   end
 end

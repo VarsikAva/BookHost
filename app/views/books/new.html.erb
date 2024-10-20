@@ -1,6 +1,5 @@
 <div class="container my-5">
-  <h1>Create New Book</h1>
-  <p>Fill in the form to create a new book.</p>
+  <h1 class="title mb-5"> Rent out a new book now!</h1>
 
   <%= simple_form_for (@book) do |f| %>
     <%= f.error_notification %>
@@ -29,8 +28,8 @@
                   required: true %>
     </div>
 
-    <div class="form-actions">
-      <%= f.submit "Create Book", class: "btn btn-primary" %>
+    <div class="form-actions my-5">
+      <%= f.submit "Submit", class: "btn btn-book btn-product-r" %>
     </div>
   <% end %>
 </div>
