@@ -20,9 +20,6 @@
 
             <% if book.stock_quantity == 0 %>
               <p class="text-danger">Out of stock</p>
-              <% if book.out_of_stock_until %>
-                <p>Available again after: <%= book.out_of_stock_until.strftime('%B %d, %Y') %></p>
-              <% end %>
             <% else %>
               <p>Stock: <%= book.stock_quantity %> available</p>
             <% end %>

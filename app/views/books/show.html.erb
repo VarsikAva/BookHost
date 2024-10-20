@@ -1,60 +1,7 @@
-<<<<<<< HEAD
-<div class="container my-5">
-  <h1><%= @book.title %></h1>
-  <span>par <strong><%= @book.author %></strong></span>
-
-  <div class="row mt-5">
-<<<<<<< Updated upstream
-    <%= cl_image_tag @book.cover.key, class: 'col-12 col-md-6', alt: 'Book Cover' %>
-    <div class="col-12 col-md-6">
-      <strong>Details</strong>
-      <ul class="my-2">
-=======
-    <div class="product-desc">
-      <%= cl_image_tag @book.cover.key, class: 'product-image', alt: 'Book Cover' %>
-      <p class="book-desc"> <%= @book.description %></p>
-
-      <ul class="product-detail">
->>>>>>> Stashed changes
-        <li><em>ISBN:</em> <%= @book.isbn %></li>
-        <li><em>Owner:</em> <%= @book.seller.full_name %></li>
-        <li><em>Added:</em> <%= @book.created_at %></li>
-        <li><em>Stock:</em> <%= @book.stock_quantity %></li>
-      </ul>
-<<<<<<< Updated upstream
-
-      <p class="mt-4"><em><%= @book['description'] %></em></p>
-
-      <%= link_to "Rent this Book #{@book.price} €/month", new_book_booking_path(@book), class: 'btn btn-success' %>
-      <% if @book.seller != current_user %>
-        <%= link_to "Contact seller", new_message_path(receiver_id: @book.seller.id), class: 'btn btn-primary' %>
-      <% end %>
-    </div>
-=======
-    </div>
-
-    <% if @book.stock_quantity == 0 %>
-      <p class="text-danger">This book is currently out of stock.</p>
-
-      <% if @book.out_of_stock_until.present? %>
-        <p>This book will be available again after: <%= @book.out_of_stock_until.strftime('%B %d, %Y') %></p>
-      <% end %>
-    <% else %>
-      <div class="product-button">
-        <%= link_to "Rent this Book #{@book.price}€/month", new_book_booking_path(@book), class: 'btn btn-book btn-product-r' %>
-        <% if @book.seller != current_user %>
-          <%= link_to "Contact seller", new_message_path(receiver_id: @book.seller.id), class: 'btn btn-book btn-product-l' %>
-        <% end %>
-      </div>
-    <% end %>
-
->>>>>>> Stashed changes
-=======
 <div class="container my-5 card-product">
   <div class="product-title">
     <h1><%= @book.title %></h1>
     <span>by <strong><%= @book.author %></strong></span>
->>>>>>> 8eb0d70928ef8c9134e4c6b179ae66cc13e70f0b
   </div>
 
   <div class="row mt-5">
@@ -70,20 +17,20 @@
       </ul>
     </div>
 
-    <div class="product-button">
-      <% if @book.stock_quantity == 0 %>
-        <p class="text-danger">This book is currently out of stock.</p>
+  <div class="product-button">
+    <% if @book.stock_quantity == 0 %>
+      <p class="text-danger">This book is currently out of stock.</p>
 
-        <% if @book.out_of_stock_until.present? %>
-          <p>This book will be available again after: <%= @book.out_of_stock_until.strftime('%B %d, %Y') %></p>
-        <% end %>
-      <% else %>
-          <%= link_to "Rent this Book #{@book.price}€/month", new_book_booking_path(@book), class: 'btn btn-book btn-product-r' %>
-          <% if @book.seller != current_user %>
-            <%= link_to "Contact seller", new_message_path(receiver_id: @book.seller.id), class: 'btn btn-book btn-product-l' %>
-          <% end %>
-        </div>
+      <% if @book.seller != current_user %>
+        <%= link_to "Contact seller", new_message_path(receiver_id: @book.seller.id), class: 'btn btn-book btn-product-l' %>
       <% end %>
 
+    <% else %>
+      <% if @book.seller != current_user %>
+        <%= link_to "Rent this Book #{@book.price}€/month", new_book_booking_path(@book), class: 'btn btn-book btn-product-r' %>
+        <%= link_to "Contact seller", new_message_path(receiver_id: @book.seller.id), class: 'btn btn-book btn-product-l' %>
+      <% end %>
+    <% end %>
+  </div>
   </div>
 </div>

@@ -15,9 +15,7 @@ class Book < ApplicationRecord
 
   def decrement_stock!
     if stock_quantity - 1 <= 0
-      last_booking = bookings.order(:end_date).last
-      out_of_stock_until = last_booking ? last_booking.end_date : Date.today
     end
-    update(stock_quantity: stock_quantity - 1, out_of_stock_until: out_of_stock_until)
+    update(stock_quantity: stock_quantity - 1)
   end
 end
