@@ -64,15 +64,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_18_153633) do
     t.bigint "seller_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-<<<<<<< HEAD
     t.text "description"
-<<<<<<< Updated upstream
-=======
     t.date "out_of_stock_until"
->>>>>>> Stashed changes
-=======
-    t.string "description"
->>>>>>> 8eb0d70928ef8c9134e4c6b179ae66cc13e70f0b
     t.index ["seller_id"], name: "index_books_on_seller_id"
   end
 
