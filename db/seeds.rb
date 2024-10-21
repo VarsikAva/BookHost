@@ -57,7 +57,8 @@ puts "Creation of book..."
     price: Faker::Commerce.price(range: 1..10),
     stock_quantity: Faker::Number.between(from: 0, to: 5),
     owner: users.sample,
-    description: Faker::Lorem.paragraph(sentence_count: 2)
+    description: Faker::Lorem.paragraph(sentence_count: 2),
+    renter: users.sample
   )
   file = URI.parse(Faker::LoremFlickr.image(size: "300x400")).open
   book.cover.attach(io: file, filename: "cover_#{book.id}.jpg", content_type: "image/jpg")
