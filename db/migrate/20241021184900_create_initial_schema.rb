@@ -47,11 +47,21 @@ class CreateInitialSchema < ActiveRecord::Migration[7.1]
       t.integer "price"
       t.integer "stock_quantity"
       t.string "image_url"
-      t.bigint "seller_id", null: false
+      t.bigint "owner_id", null: false
       t.datetime "created_at", null: false
       t.datetime "updated_at", null: false
       t.text "description"
-      t.index ["seller_id"], name: "index_books_on_seller_id"
+      t.bigint "renter_id"
+      t.index ["owner_id"], name: "index_books_on_owner_id"
+      t.index ["renter_id"], name: "index_books_on_renter_id"
+    end
+
+    create_table "messages", force: :cascade do |t|
+      t.bigint "sender_id"
+      t.bigint "receiver_id"
+      t.text "content"
+      t.datetime "created_at", null: false
+      t.datetime "updated_at", null: false
     end
 
     create_table "orders", force: :cascade do |t|
@@ -84,19 +94,12 @@ class CreateInitialSchema < ActiveRecord::Migration[7.1]
       t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     end
 
-    create_table "messages", force: :cascade do |t|
-      t.bigint "sender_id"
-      t.bigint "receiver_id"
-      t.text "content"
-      t.datetime "created_at", null: false
-      t.datetime "updated_at", null: false
-    end
-
     add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
     add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
     add_foreign_key "bookings", "books"
     add_foreign_key "bookings", "users"
-    add_foreign_key "books", "users", column: "seller_id"
+    add_foreign_key "books", "users", column: "owner_id"
+    add_foreign_key "books", "users", column: "renter_id"
     add_foreign_key "orders", "books"
     add_foreign_key "orders", "users"
   end

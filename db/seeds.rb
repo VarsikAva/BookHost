@@ -56,7 +56,7 @@ puts "Creation of book..."
     isbn: Faker::Number.unique.number(digits: 13).to_s,
     price: Faker::Commerce.price(range: 1..10),
     stock_quantity: Faker::Number.between(from: 0, to: 5),
-    seller: users.sample,
+    owner: users.sample,
     description: Faker::Lorem.paragraph(sentence_count: 2)
   )
   file = URI.parse(Faker::LoremFlickr.image(size: "300x400")).open
