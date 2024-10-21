@@ -1,6 +1,7 @@
 class Book < ApplicationRecord
-  belongs_to :seller, class_name: :User
   has_many :bookings
+  belongs_to :owner, class_name: 'User'
+  belongs_to :renter, class_name: 'User', optional: true
   has_one_attached :cover
 
   validates :title, presence: true, length: { maximum: 60 }

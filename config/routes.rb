@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'users/show'
 
   devise_for :users
   authenticated :user do
@@ -20,4 +21,5 @@ Rails.application.routes.draw do
   resources :bookings, only: [:index, :show, :edit, :update, :destroy]
   resources :messages, only: [:index, :new, :create]
   get 'messages/conversation/:receiver_id', to:  'messages#show_conversation'
+  resources :users, only: [:show]
 end

@@ -1,5 +1,5 @@
 class Order < ApplicationRecord
-  belongs_to :user
+  belongs_to :owner
   belongs_to :book
     validates :quantity, presence: true, numericality: { only_integer: true, greater_than: 0 }
     validates :total_price, presence: true, numericality: { greater_than_or_equal_to: 0 }

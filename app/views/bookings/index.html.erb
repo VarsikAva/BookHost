@@ -12,7 +12,7 @@
           <p class="card-text"><strong>Owner:</strong> <%= booking.user.email %></p>
           <p class="card-text"><strong>Start Date:</strong> <%= booking.start_date.strftime("%B %d, %Y") %></p>
           <p class="card-text"><strong>End Date:</strong> <%= booking.end_date.strftime("%B %d, %Y") %></p>
-          <%= link_to 'View Booking', book_booking_path(booking.book, booking), class: 'btn btn-book btn-product-l' %> <!-- Lien pour voir la réservation -->
+          <%= link_to 'View Booking', book_booking_path(booking.book, booking), class: 'btn btn-book btn-product-l' %>
         </div>
       </div>
     </div>

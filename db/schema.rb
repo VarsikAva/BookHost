@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_10_19_181438) do
+ActiveRecord::Schema[7.1].define(version: 2024_10_21_144856) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -61,11 +61,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_19_181438) do
     t.integer "price"
     t.integer "stock_quantity"
     t.string "image_url"
-    t.bigint "seller_id", null: false
+    t.bigint "owner_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "description"
-    t.index ["seller_id"], name: "index_books_on_seller_id"
+    t.bigint "renter_id"
+    t.index ["owner_id"], name: "index_books_on_owner_id"
+    t.index ["renter_id"], name: "index_books_on_renter_id"
   end
 
   create_table "messages", force: :cascade do |t|
@@ -110,7 +112,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_19_181438) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "bookings", "books"
   add_foreign_key "bookings", "users"
-  add_foreign_key "books", "users", column: "seller_id"
+  add_foreign_key "books", "users", column: "owner_id"
+  add_foreign_key "books", "users", column: "owner_id"
+  add_foreign_key "books", "users", column: "renter_id"
+  add_foreign_key "books", "users", column: "renter_id"
   add_foreign_key "orders", "books"
   add_foreign_key "orders", "users"
 end
