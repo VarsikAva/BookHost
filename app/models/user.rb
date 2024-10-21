@@ -1,13 +1,12 @@
 class User < ApplicationRecord
-  has_many :books, through: :bookings
-  #has_many :orders
-  #has_many :reviews
+  has_many :owned_books, class_name: 'Book', foreign_key: 'owner_id'
+  has_many :rented_books, class_name: 'Book', foreign_key: 'renter_id'
   has_many :bookings
+
   validates :email, presence: true, uniqueness: true, length: { maximum: 60 }
   validates :password, presence: true, length: { maximum: 20 }
   validates :address, allow_nil: true, length: { maximum: 255 }
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 

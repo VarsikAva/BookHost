@@ -1,0 +1,6 @@
+<h2>Books You Are Renting Out</h2>
+<ul>
+  <% @owned_books.each do |book| %>
+    <li><%= book.title %></li>
+  <% end %>
+</ul>

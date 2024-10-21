@@ -9,10 +9,11 @@
       <%= cl_image_tag @book.cover.key, class: 'product-image', alt: 'Book Cover' %>
 
       <ul class="product-detail">
+
         <li><%= @book.description %></li>
         <div>
           <li><em>ISBN:</em> <%= @book.isbn %></li>
-          <li><em>Owner:</em> <%= @book.seller.first_name %> <%= @book.seller.last_name %></li>
+          <li><em>Owner:</em> <%= @book.owner.first_name %> <%= @book.owner.last_name %></li>
           <li><em>Added:</em> <%= @book.created_at.strftime("%B %d, %Y at %I:%M %p") %></li>
           <li><em>Stock:</em> <%= @book.stock_quantity %></li>
         </div>
@@ -20,18 +21,22 @@
         <% if @book.stock_quantity == 0 %>
           <p class="text-danger">This book is currently out of stock.</p>
 
-          <% if @book.seller != current_user %>
-            <%= link_to "Contact seller", new_message_path(receiver_id: @book.seller.id), class: 'btn btn-book btn-product-l' %>
+
+          <% if @book.owner != current_user %>
+            <%= link_to "Contact owner", new_message_path(receiver_id: @book.owner.id), class: 'btn btn-book btn-product-l' %>
           <% end %>
 
+
+
         <% else %>
-          <% if @book.seller != current_user %>
+          <% if @book.owner != current_user %>
             <%= link_to "Rent this Book #{@book.price}€/month", new_book_booking_path(@book), class: 'btn btn-book btn-product-r' %>
-            <%= link_to "Contact seller", new_message_path(receiver_id: @book.seller.id), class: 'btn btn-book btn-product-l' %>
+            <%= link_to "Contact owner", new_message_path(receiver_id: @book.owner.id), class: 'btn btn-book btn-product-l' %>
           <% end %>
         <% end %>
       </ul>
     </div>
+
 
   </div>
   </div>
