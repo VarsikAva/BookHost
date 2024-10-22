@@ -1,0 +1,38 @@
+
+.card-my-book {
+  overflow: hidden;
+  height: 100%;
+  width: 50%;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  border-radius: 7px;
+  justify-content: space-between;
+  margin: 12px;
+  padding: 12px;
+
+
+  .card-img-my-book {
+    height: 150px;
+    border-radius: 7px;
+    justify-self: flex-start;
+
+  }
+
+  .my-book-title {
+    margin-left: 25px;
+    text-decoration: none;
+
+  }
+  .btn-index {
+    align-self: flex-end;
+    justify-self: flex-end;
+  }
+
+}
+
+.card-center {
+  margin-top: 25px;
+
+}
