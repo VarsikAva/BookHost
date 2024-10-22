@@ -1,6 +1,13 @@
+<div class="container my-5 my-book">
 <h2>Books You Are Renting Out</h2>
-<ul>
-  <% @owned_books.each do |book| %>
-    <li><%= book.title %></li>
-  <% end %>
-</ul>
+    <ul class="ul-my-book">
+      <% @owned_books.each do |book| %>
+      <div class="card-center">
+        <li class="card-my-book"><%= cl_image_tag book.cover.key, class: "card-img-my-book" %>
+          <h5 class="my-book-title"><%= book.title %></h5>
+          <%= link_to "View book", book_path(book.id), class: "btn btn-book btn-index"%>
+        </li>
+      </div>
+      <% end %>
+    </ul>
+</div>
