@@ -1,15 +1,19 @@
 
 <div class="container my-5">
-  <h1>Conversations</h1>
+  <h1 class="text-center mb-5">Conversations</h1>
 
-  <% @conversations.each do |conversation| %>
-    <div class="d-flex w-100 gap-5">
-      <div><strong><%= conversation[:other_user].full_name %></strong></div>
-      <div><%= conversation[:last_message].content %></div>
-      <div><%= conversation[:last_message].created_at.strftime('%B %d, %Y at %I:%M %p') %></div>
-      <div>
-        <%= link_to "Continue", conversation[:path], class: 'btn btn-book btn-product-l' %>
+  <% if @conversations.empty? %>
+    <p class="text-center">No conversations yet</p>
+  <% else %>
+    <% @conversations.each do |conversation| %>
+      <div class="d-flex w-100 gap-5">
+        <div><strong><%= conversation[:other_user].full_name %></strong></div>
+        <div><%= conversation[:last_message].content %></div>
+        <div><%= conversation[:last_message].created_at.strftime('%B %d, %Y at %I:%M %p') %></div>
+        <div>
+          <%= link_to "Continue", conversation[:path], class: 'btn btn-book btn-product-l' %>
+        </div>
       </div>
-    </div>
+    <% end %>
   <% end %>
 </div>
