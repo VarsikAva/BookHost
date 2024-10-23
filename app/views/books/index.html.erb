@@ -15,7 +15,7 @@
       <div class="card-book">
         <%= cl_image_tag book.cover.key, class: "card-img-top" %>
         <div class="card-body">
-          <h5 class="card-title"><%= book.author %> - <%= book.title %></h5>
+          <h5 class="card-title"><%= book.author %> - <span class="fw-bold"><%= book.title %></span></h5>
           <p class="card-text"><%= book.description %></p>
 
             <% if book.stock_quantity == 0 %>

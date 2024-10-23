@@ -49,7 +49,7 @@ users << User.create(
 )
 puts "Creation of book..."
 
-20.times do
+15.times do
   book = Book.create(
     title: Faker::Book.title,
     author: Faker::Book.author,
@@ -57,7 +57,7 @@ puts "Creation of book..."
     price: Faker::Commerce.price(range: 1..10),
     stock_quantity: Faker::Number.between(from: 0, to: 5),
     owner: users.sample,
-    description: Faker::Lorem.paragraph(sentence_count: 2),
+    description: Faker::Lorem.paragraph(sentence_count: 5),
     renter: users.sample
   )
   file = URI.parse(Faker::LoremFlickr.image(size: "300x400")).open
@@ -65,4 +65,4 @@ puts "Creation of book..."
   book.save
 end
 
-puts "20 books are created"
+puts "15 books are created"
