@@ -37,7 +37,10 @@
   }
 }
 
-h3 {
+.home-link {
+  user-select: none;
+  text-decoration: none;
+  font-size: xx-large;
   color: #ffe6a7;
 }
 
