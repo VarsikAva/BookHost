@@ -13,7 +13,7 @@
         <li><%= @book.description %></li>
         <div>
           <li><em>ISBN:</em> <%= @book.isbn %></li>
-          <li><em>Owner:</em> <%= @book.owner.first_name %> <%= @book.owner.last_name %></li>
+          <li><em>Owner:</em> <%= @book.owner.full_name %></li>
           <li><em>Added:</em> <%= @book.created_at.strftime("%B %d, %Y at %I:%M %p") %></li>
           <li><em>Stock:</em> <%= @book.stock_quantity %></li>
         </div>

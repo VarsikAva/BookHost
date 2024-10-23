@@ -18,11 +18,12 @@
           <h5 class="card-title"><%= book.author %> - <span class="fw-bold"><%= book.title %></span></h5>
           <p class="card-text"><%= book.description %></p>
 
-            <% if book.stock_quantity == 0 %>
-              <p class="text-danger">Out of stock</p>
-            <% else %>
-              <p>Stock: <%= book.stock_quantity %> available</p>
-            <% end %>
+          <span><em>Owner:</em> <%= book.owner.full_name %></span>
+          <% if book.stock_quantity == 0 %>
+            <span class="text-danger">Out of stock</span>
+          <% else %>
+            <span><em>Stock:</em> <%= book.stock_quantity %> available</span>
+          <% end %>
         </div>
           <div class="card-button">
             <%= link_to "View book", book_path(book.id), class: "btn btn-book btn-index" %>
